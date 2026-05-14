@@ -12,7 +12,7 @@ import {
   Calendar, Calculator, Briefcase
 } from "lucide-react";
 import QRCode from "react-qr-code";
-import { supabase } from "../../utils/supabase";
+import { supabase } from "../../../utils/supabase";
 import logoImg from "../../imports/icon-maskable-192.png";
 import { format } from "date-fns";
 import {
@@ -1126,7 +1126,7 @@ function QrMenuModule({ tables }: { tables: TableData[] }) {
     const printContent = tables.map(t => `
       <div style="page-break-inside:avoid; display:flex; flex-direction:column; align-items:center; justify-content:center; border:2px dashed #ccc; border-radius:16px; padding:24px; margin:12px; width:280px; height:320px;">
         <p style="font-family:Poppins,sans-serif; font-size:20px; font-weight:700; margin:0 0 4px; color:#1F2937;">Buku Menu Digital</p>
-        <p style="font-family:Poppins,sans-serif; font-size:14px; font-weight:600; color:#6B7280; margin:0 0 16px;">Pawon Salam Resto</p>
+        <p style="font-family:Poppins,sans-serif; font-size:14px; font-weight:600; color:#6B7280; margin:0 0 16px;">Kedai Elvera 57</p>
         <div style="background:#fff; padding:8px; border-radius:8px;">
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(`${baseUrl}/menu/${t.id}`)}" width="180" height="180" />
         </div>
@@ -1137,7 +1137,7 @@ function QrMenuModule({ tables }: { tables: TableData[] }) {
     const printWindow = window.open("", "_blank");
     if (!printWindow) return;
     printWindow.document.write(`
-      <!DOCTYPE html><html><head><title>QR Menu - Pawon Salam</title>
+      <!DOCTYPE html><html><head><title>QR Menu - Kedai Elvera 57</title>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         body { margin:0; display:flex; flex-wrap:wrap; justify-content:center; font-family:Poppins,sans-serif; }
@@ -1529,10 +1529,10 @@ export default function AdminPage() {
       <aside className={`flex-shrink-0 flex flex-col border-r border-border bg-sidebar transition-all duration-200 ${sidebarOpen ? "w-56" : "w-14"}`}>
         <div className="p-4 border-b border-sidebar-border">
           <div className="flex items-center gap-3">
-            <img src={logoImg} alt="Pawon Salam" className="w-9 h-9 rounded-lg object-cover flex-shrink-0" />
+            <img src={logoImg} alt="Kedai Elvera 57" className="w-9 h-9 rounded-lg object-cover flex-shrink-0" />
             {sidebarOpen && (
               <div className="overflow-hidden">
-                <p className="font-bold text-sm text-foreground leading-tight font-['Poppins']">Pawon Salam</p>
+                <p className="font-bold text-sm text-foreground leading-tight font-['Poppins']">Kedai Elvera 57</p>
                 <p className="text-xs text-muted-foreground leading-tight">Admin Panel</p>
               </div>
             )}
@@ -1574,9 +1574,9 @@ export default function AdminPage() {
             <Grid3X3 size={16} />
           </button>
           <div className="flex items-center gap-3">
-            <img src={logoImg} alt="Pawon Salam" className="w-8 h-8 rounded-full object-cover" />
+            <img src={logoImg} alt="Kedai Elvera 57" className="w-8 h-8 rounded-full object-cover" />
             <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
-              <span className="font-medium">Pawon Salam</span>
+              <span className="font-medium">Kedai Elvera 57</span>
               <ChevronRight size={12} />
               <span className="text-foreground font-medium">{moduleLabels[activeModule]}</span>
             </div>
