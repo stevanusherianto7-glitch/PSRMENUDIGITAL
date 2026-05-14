@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ChefHat, Eye, EyeOff, Lock, ArrowRight, UtensilsCrossed, ShoppingBag, Scan } from "lucide-react";
-import logoImg from "../../imports/icon-maskable-192.png";
+import logoImg from "https://ugfpbkjuxrdgveyfbfks.supabase.co/storage/v1/object/public/image_url/logo_kedai_Elvera57.png";
 import { CREDENTIALS } from "../data";
 import type { UserRole, UserSession } from "../types";
 
@@ -50,18 +50,18 @@ export default function LoginPage() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
 
         <div className="relative flex items-center gap-3">
-          <img src={logoImg} alt="Pawon Salam" className="w-11 h-11 rounded-xl object-cover ring-1 ring-gold/40" />
+          <img src={logoImg} alt="Kedai Elvera 57" className="w-11 h-11 rounded-xl object-cover ring-1 ring-gold/40" />
           <div>
-            <p className="font-display text-lg leading-none text-sidebar-foreground">Pawon Salam</p>
+            <p className="font-display text-lg leading-none text-sidebar-foreground">Kedai Elvera 57</p>
             <p className="eyebrow mt-1">Restaurant System</p>
           </div>
         </div>
 
         <div className="relative space-y-10">
           <div>
-            <p className="eyebrow mb-4">Sejak 2025 · Semarang</p>
+            <p className="eyebrow mb-4">Sejak 2018 · Madiun</p>
             <h1 className="font-display text-5xl leading-[1.05] text-sidebar-foreground">
-              Cita rasa Jawa,
+              Cita rasa Kuliner,
               <br />
               <span className="text-gold italic">disajikan modern.</span>
             </h1>
@@ -98,9 +98,9 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <div className="flex lg:hidden items-center justify-center gap-3 mb-10">
-            <img src={logoImg} alt="Pawon Salam" className="w-12 h-12 rounded-xl object-cover ring-1 ring-gold/40" />
+            <img src={logoImg} alt="Kedai Elvera 57" className="w-12 h-12 rounded-xl object-cover ring-1 ring-gold/40" />
             <div>
-              <p className="font-display text-xl leading-none">Pawon Salam</p>
+              <p className="font-display text-xl leading-none">Kedai Elvera 57</p>
               <p className="eyebrow mt-1">Restaurant System</p>
             </div>
           </div>
