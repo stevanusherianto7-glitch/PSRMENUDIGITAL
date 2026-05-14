@@ -641,7 +641,7 @@ export function MenuManagement({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="font-semibold text-sm text-foreground">Katalog Menu Pawon Salam</h3>
+          <h3 className="font-semibold text-sm text-foreground">Katalog Menu Kedai Elvera 57</h3>
           <p className="text-muted-foreground text-xs mt-0.5">
             {menuItems.length} item · {availableCount} aktif · {unavailableCount} tidak tersedia
           </p>

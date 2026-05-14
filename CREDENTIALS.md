@@ -1,7 +1,7 @@
 # Dashboard POS untuk Pawon Salam (Community) - Repository
 
 GitHub Repository URL:
-https://github.com/stevanusherianto7-glitch/Dashboardposuntukpawonsalamcommunitycopy
+https://github.com/stevanusherianto7-glitch/PSRMENUDIGITAL_CLONE
 
 Supabase Configuration:
 - URL: https://pbitlwrgainrcippjuwd.supabase.co

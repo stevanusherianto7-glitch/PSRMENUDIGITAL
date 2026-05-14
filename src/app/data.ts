@@ -304,7 +304,7 @@ export const SEED_MENU: MenuItem[] = [
     image: imgWelcomeDrink,
     available: true,
     tag: "Spesial",
-    description: "Minuman selamat datang khas Pawon Salam, perpaduan buah tropis yang menyegarkan.",
+    description: "Minuman selamat datang khas Kedai Elvera 57, perpaduan buah tropis yang menyegarkan.",
   },
   {
     id: "menu_029",
@@ -382,7 +382,7 @@ export const HOURLY_DATA = [
 
 // Credentials (in a real app, these would be in the server)
 export const CREDENTIALS = {
-  admin:   { password: "admin123",   name: "Admin Pawon Salam" },
+  admin:   { password: "admin123",   name: "Admin Kedai Elvera 57" },
   waiter:  { password: "waiter123",  name: "Pelayan"           },
   kitchen: { password: "dapur123", name: "Dapur"             },
 };

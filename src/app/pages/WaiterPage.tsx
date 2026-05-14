@@ -5,7 +5,7 @@ import {
   RefreshCw, LogOut, Bell, Flame, Bike, ShoppingBag,
   AlertTriangle, Volume2, VolumeX, Utensils, Package
 } from "lucide-react";
-import logoImg from "../../imports/icon-maskable-192.png";
+import logoImg from "https://ugfpbkjuxrdgveyfbfks.supabase.co/storage/v1/object/public/image_url/logo_kedai_Elvera57.png";
 import { rp } from "../data";
 import { fetchOrders, updateOrder } from "../api";
 import { useTTS, preloadVoices } from "../hooks/useTTS";
@@ -131,10 +131,10 @@ export default function WaiterPage() {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="h-14 border-b border-border bg-card/80 backdrop-blur-sm flex items-center px-4 gap-3 flex-shrink-0">
-        <img src={logoImg} alt="Pawon Salam" className="w-8 h-8 rounded-lg object-cover" />
+        <img src={logoImg} alt="Kedai Elvera 57" className="w-8 h-8 rounded-lg object-cover" />
         <div className="flex-1">
           <p className="font-bold text-sm text-foreground" style={{ fontFamily: "Poppins" }}>
-            {session.role === "cook" ? "Dapur" : session.role === "waiter" ? "Pelayan" : "Manager/Owner"} · Pawon Salam
+            {session.role === "cook" ? "Dapur" : session.role === "waiter" ? "Pelayan" : "Manager/Owner"} · Kedai Elvera 57
           </p>
           <p className="text-xs text-muted-foreground">{session.name}</p>
         </div>
