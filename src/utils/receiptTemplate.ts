@@ -41,7 +41,7 @@ export const ReceiptTemplate = {
       .initialize()
       .codepage('windows1252')
       .raw([0x1B, 0x61, 0x01]) // ESC a 1 (Center)
-      .text('Kedai Elvera 57')
+      .text('Pawon Salam')
       .newline()
       .text('Jl. Pertanian No. 57')
       .newline()
@@ -188,7 +188,7 @@ export const ReceiptTemplate = {
       .initialize()
       .codepage('windows1252')
       .raw([0x1B, 0x61, 0x01]) // Center
-      .text('Kedai Elvera 57')
+      .text('Pawon Salam')
       .newline()
       .text('Jl. Pertanian No. 57')
       .newline()

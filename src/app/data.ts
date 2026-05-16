@@ -14,9 +14,8 @@ const addDays = (d: Date, n: number) => {
 };
 
 // ─── BRAND CONFIG ─────────────────────────────────────────────────────────────
-export const BRAND_NAME = "Kedai Elvera 57";
-export const SYSTEM_LOGO = "https://pbitlwrgainrcippjuwd.supabase.co/storage/v1/object/public/logo/icon-maskable-192.png"; // Logo Pawon Salam (sistem/admin/sidebar/QR)
-export const APP_LOGO = "https://ugfpbkjuxrdgveyfbfks.supabase.co/storage/v1/object/public/image_url/logo_kedai_Elvera57.png"; // Logo brand Kedai Elvera 57 (tamu)
+export const BRAND_NAME = "Pawon Salam";
+export const APP_LOGO = "https://pbitlwrgainrcippjuwd.supabase.co/storage/v1/object/public/logo/icon-maskable-192.png";
 export const BRAND_TAGLINE = "Sajian Otentik Khas Semarang";
 
 // ─── SEED MENU (Fetched from Supabase Project B) ──────────────────────────────────
@@ -249,7 +248,7 @@ export const SEED_MENU: MenuItem[] = [
     "image": "https://pbitlwrgainrcippjuwd.supabase.co/storage/v1/object/public/public-images/Welcome%20Drink.jpg",
     "available": true,
     "tag": "Spesial",
-    "description": "Minuman selamat datang khas Kedai Elvera 57, perpaduan buah tropis yang menyegarkan."
+    "description": "Minuman selamat datang khas Pawon Salam, perpaduan buah tropis yang menyegarkan."
   },
   {
     "id": "menu_029",
@@ -391,7 +390,7 @@ export const HOURLY_DATA = [
 ];
 
 export const CREDENTIALS = {
-  admin: { password: "admin123", name: "Admin Kedai Elvera 57" },
+  admin: { password: "admin123", name: "Admin Pawon Salam" },
   waiter: { password: "waiter123", name: "Pelayan" },
   kitchen: { password: "dapur123", name: "Dapur" },
 };
