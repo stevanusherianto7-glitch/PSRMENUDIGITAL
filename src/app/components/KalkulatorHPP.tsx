@@ -137,7 +137,7 @@ export const KalkulatorHPP = () => {
           </div>
           <div>
             <h2 className="text-2xl font-bold text-foreground tracking-tight font-['Poppins']">Kalkulator HPP</h2>
-            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-0.5">Metode Recipe Manager · Kedai Elvera 57</p>
+            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-0.5">Metode Recipe Manager · Pawon Salam</p>
           </div>
         </div>
         <div className="flex items-center gap-2">

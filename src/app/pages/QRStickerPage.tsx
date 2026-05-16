@@ -6,7 +6,7 @@ import {
   CheckCircle2, UtensilsCrossed, Loader2, ImageDown,
 } from "lucide-react";
 import html2canvas from "html2canvas";
-const logoImg = "/imports/logo_kedai_Elvera57.png";
+const logoImg = "/imports/logo_pawon_salam.png";
 import { SEED_TABLES } from "../data";
 import "../../styles/QRStickerPage.css";
 
@@ -111,7 +111,7 @@ function StickerCard({ tableId, size }: { tableId: string; size: "sm" | "md" | "
               Buku Menu Digital
             </div>
             <div className="header-subtitle">
-              Kedai Elvera 57
+              Pawon Salam
             </div>
           </div>
         </div>
@@ -294,7 +294,7 @@ export default function QRStickerPage() {
             </div>
             <div>
               <p className="text-sm font-bold text-white">Stiker QR Meja</p>
-              <p className="text-xs text-gold-dimmed">Kedai Elvera 57 — Cetak & Tempel</p>
+              <p className="text-xs text-gold-dimmed">Pawon Salam — Cetak & Tempel</p>
             </div>
           </div>
 

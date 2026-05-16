@@ -5,7 +5,7 @@ import {
   CheckCircle2, Clock, ChefHat, UtensilsCrossed, Scan, RefreshCw,
   Utensils, ShoppingBag, Sparkles, MapPin, ClipboardList
 } from "lucide-react";
-const logoImg = "/imports/logo_kedai_Elvera57.png";
+const logoImg = "/imports/logo_pawon_salam.png";
 import { SEED_MENU, menuCategories, rp } from "../data";
 import { supabase } from "../../lib/supabase";
 import { createOrder, fetchOrders } from "../api";
@@ -204,7 +204,7 @@ export default function GuestMenuPage() {
                   <div className="relative mb-3">
                     <img
                       src={logoImg}
-                      alt="Kedai Elvera 57"
+                      alt="Pawon Salam"
                       className="w-16 h-16 rounded-2xl object-cover border-2 border-foreground/10"
                     />
                   </div>
@@ -212,7 +212,7 @@ export default function GuestMenuPage() {
                     className="text-xl font-extrabold text-foreground leading-tight font-poppins"
                   >
                     Selamat Datang di<br />
-                    <span className="text-primary">Kedai Elvera 57!</span>
+                    <span className="text-primary">Pawon Salam!</span>
                   </h2>
                   <p className="text-xs text-muted-foreground mt-1.5">
                     Restoran khas Semarang · Nikmati sajian terbaik kami
@@ -390,7 +390,7 @@ export default function GuestMenuPage() {
                 </button>
 
                 <p className="text-center text-[10px] text-muted-foreground mt-3">
-                  Meja {tableId} · Kedai Elvera 57 · Semarang
+                  Meja {tableId} · Pawon Salam · Semarang
                 </p>
               </div>
             )}
@@ -401,9 +401,9 @@ export default function GuestMenuPage() {
       {/* Header */}
       <header className="sticky top-0 z-20 bg-card/80 backdrop-blur-md border-b border-border px-4 py-3">
         <div className="flex items-center gap-3">
-          <img src={logoImg} alt="Kedai Elvera 57" className="w-9 h-9 rounded-lg object-cover" />
+          <img src={logoImg} alt="Pawon Salam" className="w-9 h-9 rounded-lg object-cover" />
           <div className="flex-1 min-w-0">
-            <p className="font-bold text-sm text-foreground font-poppins">Kedai Elvera 57</p>
+            <p className="font-bold text-sm text-foreground font-poppins">Pawon Salam</p>
             <p className="text-xs text-muted-foreground">Meja {tableId} · Scan & Order</p>
           </div>
           {myOrders.length > 0 && (

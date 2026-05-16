@@ -237,7 +237,7 @@ export const SEED_MENU: MenuItem[] = [
     "image": "https://pbitlwrgainrcippjuwd.supabase.co/storage/v1/object/public/public-images/Welcome%20Drink.jpg",
     "available": true,
     "tag": "Spesial",
-    "description": "Minuman selamat datang khas Kedai Elvera 57, perpaduan buah tropis yang menyegarkan."
+    "description": "Minuman selamat datang khas Pawon Salam, perpaduan buah tropis yang menyegarkan."
   },
   {
     "id": "menu_029",
@@ -379,7 +379,7 @@ export const HOURLY_DATA = [
 ];
 
 export const CREDENTIALS = {
-  admin: { password: "admin123", name: "Admin Kedai Elvera 57" },
+  admin: { password: "admin123", name: "Admin Pawon Salam" },
   waiter: { password: "waiter123", name: "Pelayan" },
   kitchen: { password: "dapur123", name: "Dapur" },
 };
