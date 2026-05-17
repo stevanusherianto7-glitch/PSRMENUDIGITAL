@@ -30,9 +30,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icon-192.png', 'icon-512.png'],
       manifest: {
-        name: 'Pawon Salam — POS & Menu Digital',
-        short_name: 'PawonSalam',
-        description: 'Sistem Kasir & Menu Digital Pawon Salam. Sajian Otentik Khas Semarang.',
+        name: 'Kedai Elvera 57 — POS & Menu Digital',
+        short_name: 'Elvera57',
+        description: 'Sistem Kasir & Menu Digital Kedai Elvera 57. Sajian Otentik Khas Semarang.',
         theme_color: '#F7F1E6',
         background_color: '#F7F1E6',
         display: 'standalone',
@@ -58,7 +58,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg,woff2}'],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/pbitlwrgainrcippjuwd\.supabase\.co\/.*/i,
+            urlPattern: /^https:\/\/ugfpbkjuxrdgveyfbfks\.supabase\.co\/storage\/v1\/.*/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'supabase-images',
