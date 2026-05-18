@@ -118,7 +118,7 @@ export function KitchenReceipt({ order }: KitchenReceiptProps) {
         </div>
       )}
       <div className="text-center text-[8pt] mt-3 border-t border-dashed pt-1">
-        Kedai Elvera 57 POS
+        Pawon Salam POS
       </div>
     </div>
   );
@@ -132,7 +132,7 @@ export function GuestReceipt({ tx }: GuestReceiptProps) {
   return (
     <div className="receipt-container">
       <style>{receiptStyles}</style>
-      <div className="text-center font-bold text-sm mb-0.5">Kedai Elvera 57</div>
+      <div className="text-center font-bold text-sm mb-0.5">Pawon Salam</div>
       <div className="text-center text-xs mb-0.5">Jl. Pertanian No. 57</div>
       <div className="text-center text-xs mb-0.5">Lebak Bulus, Jakarta Selatan</div>
       <div className="text-center text-xs mb-1">WA: 0895-3763-48626</div>
