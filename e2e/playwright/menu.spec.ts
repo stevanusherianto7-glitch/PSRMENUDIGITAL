@@ -19,6 +19,11 @@ test.describe('Pawon Salam - Guest Menu & Ordering E2E Flow (Playwright Real-API
     });
 
     // --- 1. WELCOME MODAL STEP 1 ---
+    const introButton = page.locator('button:has-text("Masuk Ke Menu")');
+    if (await introButton.isVisible()) {
+      await introButton.click();
+    }
+
     // Assert welcome screen title and Halal certificate presence
     await expect(page.locator('text=Selamat Datang di')).toBeVisible();
     await expect(page.locator('text=Pawon Salam!')).toBeVisible();
