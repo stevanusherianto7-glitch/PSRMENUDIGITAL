@@ -33,7 +33,7 @@ export default defineConfig({
         name: 'Pawon Salam — POS & Menu Digital',
         short_name: 'PawonSalam',
         description: 'Sistem Kasir & Menu Digital Pawon Salam. Sajian Otentik Khas Semarang.',
-        theme_color: '#F7F1E6',
+        theme_color: '#E87722',
         background_color: '#F7F1E6',
         display: 'standalone',
         orientation: 'any',
