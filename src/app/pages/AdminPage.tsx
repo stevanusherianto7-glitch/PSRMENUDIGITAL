@@ -1,6 +1,6 @@
 /** 
  * ⚠️ DILARANG KERAS UNTUK MENGUBAH ATAU MEMODIFIKASI FILE INI TANPA IZIN SENIOR ARCHITECT.
- * FILE INI ADALAH MODUL PUSAT KENDALI (ADMIN) SISTEM PAWON SALAM.
+ * FILE INI ADALAH MODUL PUSAT KENDALI (ADMIN) SISTEM Kedai Elvera 57.
  * PERUBAHAN LOGIKA DI SINI AKAN BERDAMPAK PADA SELURUH ALUR KERJA RESTORAN. ⚠️
  */
 
@@ -226,7 +226,7 @@ export default function AdminPage() {
   const testTtsSpeech = () => {
     if (!("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance("Tes suara notifikasi sistem Pawon Salam.");
+    const utterance = new SpeechSynthesisUtterance("Tes suara notifikasi sistem Kedai Elvera 57.");
     utterance.lang = "id-ID";
     utterance.rate = ttsRate;
     utterance.pitch = ttsPitch;
@@ -1167,7 +1167,7 @@ export default function AdminPage() {
                   }}
                   className="w-full px-3 py-2 rounded-xl border border-[#a76d33]/20 bg-background text-foreground text-xs focus:outline-none focus:ring-2 focus:ring-[#a76d33]"
                 >
-                  <option value="default_female">Default Wanita (Pawon Salam)</option>
+                  <option value="default_female">Default Wanita (Kedai Elvera 57)</option>
                   <option value="fast_female">Wanita (Cepat & Jelas)</option>
                   <option value="standard_male">Pria Standar (Deep Voice)</option>
                   <option value="browser_default">Default Browser (Bawaan)</option>

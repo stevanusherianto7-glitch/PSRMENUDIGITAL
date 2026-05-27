@@ -70,7 +70,7 @@ export function exportMonthlyPDF(
     </head>
     <body>
       <div class="header">
-        <h1>JADWAL SHIFT Pawon Salam</h1>
+        <h1>JADWAL SHIFT Kedai Elvera 57</h1>
         <p class="subtitle">Periode: ${monthYearStr}</p>
       </div>
       <table>
@@ -123,7 +123,7 @@ export function exportCategorySalesReport(
     <!DOCTYPE html>
     <html>
     <head>
-      <title>Laporan Penjualan Per Kategori - Pawon Salam</title>
+      <title>Laporan Penjualan Per Kategori - Kedai Elvera 57</title>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; padding: 40px; color: #1A1A1E; background-color: #fff; }
@@ -152,7 +152,7 @@ export function exportCategorySalesReport(
     </head>
     <body>
       <div class="header">
-        <h1>PAWON SALAM</h1>
+        <h1>Kedai Elvera 57</h1>
         <p class="subtitle">Laporan Penjualan Per Kategori</p>
         <p style="font-size: 11px; margin-top: 5px;">Dicetak pada: ${new Date().toLocaleString('id-ID')}</p>
       </div>
@@ -197,7 +197,7 @@ export function exportCategorySalesReport(
 
       <div class="footer">
         <div class="info">
-          * Laporan ini dihasilkan secara otomatis oleh Pawon Salam POS.<br>
+          * Laporan ini dihasilkan secara otomatis oleh Kedai Elvera 57 POS.<br>
           * Data bersifat rahasia dan hanya untuk keperluan internal.
         </div>
         <div class="sig-box">
@@ -305,7 +305,7 @@ export function exportInventoryPDF(
     <!DOCTYPE html>
     <html>
     <head>
-      <title>Laporan Stok Opname - Pawon Salam</title>
+      <title>Laporan Stok Opname - Kedai Elvera 57</title>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; padding: 40px; color: #1A1A1E; background-color: #fff; }
@@ -340,7 +340,7 @@ export function exportInventoryPDF(
     <body>
       <div class="header">
         <div class="header-left">
-          <h1>PAWON SALAM</h1>
+          <h1>Kedai Elvera 57</h1>
           <p>LAPORAN STOK OPNAME INVENTARIS</p>
         </div>
         <div class="header-right">
@@ -407,7 +407,7 @@ export function exportInventoryPDF(
           <p style="margin-bottom: 5px; font-size: 12px;">Jakarta, ${new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
           <div class="sig-line"></div>
           <p class="sig-name">Admin / Manager</p>
-          <p class="sig-title">Pawon Salam POS System</p>
+          <p class="sig-title">Kedai Elvera 57 POS System</p>
         </div>
       </div>
     </body>

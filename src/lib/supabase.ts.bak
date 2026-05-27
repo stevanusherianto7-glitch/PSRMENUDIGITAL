@@ -1,6 +1,6 @@
 /** 
  * ⚠️ DILARANG KERAS UNTUK MENGUBAH ATAU MEMODIFIKASI FILE INI TANPA IZIN SENIOR ARCHITECT.
- * FILE INI BERISI KONEKSI UTAMA KE SUPABASE PAWON SALAM.
+ * FILE INI BERISI KONEKSI UTAMA KE SUPABASE Kedai Elvera 57.
  * PELANGGARAN DAPAT MENYEBABKAN SISTEM KEHILANGAN KONEKSI DATA. ⚠️
  */
 
@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 
 /**
  * ──────────────────────────────────────────────────────────
- *  Pawon Salam — Supabase Client
+ *  Kedai Elvera 57 — Supabase Client
  *  Project: https://ywqatzkkvbzkjnoexvux.supabase.co
  * ──────────────────────────────────────────────────────────
  *

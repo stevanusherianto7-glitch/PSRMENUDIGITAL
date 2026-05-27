@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Pawon Salam POS</string>
-    <string name="title_activity_main">Pawon Salam POS</string>
+    <string name="app_name">Kedai Elvera 57 POS</string>
+    <string name="title_activity_main">Kedai Elvera 57 POS</string>
     <string name="package_name">com.pawonsalam.pos</string>
     <string name="custom_url_scheme">com.pawonsalam.pos</string>
 </resources>

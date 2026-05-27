@@ -1,6 +1,6 @@
 /** 
  * ⚠️ DILARANG KERAS UNTUK MENGUBAH ATAU MEMODIFIKASI FILE INI TANPA IZIN SENIOR ARCHITECT.
- * FILE INI BERISI CONFIG PRODUKSI, SEED DATA, DAN URL DOMAIN PAWON SALAM.
+ * FILE INI BERISI CONFIG PRODUKSI, SEED DATA, DAN URL DOMAIN Kedai Elvera 57.
  * PERUBAHAN TIDAK TERUKUR DAPAT MERUSAK TAMPILAN DAN QR CODE. ⚠️
  */
 
@@ -14,11 +14,11 @@ const addDays = (d: Date, n: number) => {
 };
 
 // ─── BRAND CONFIG ─────────────────────────────────────────────────────────────
-export const BRAND_NAME = "Pawon Salam";
-// Local offline-ready logo with fallback reference: /logo-pawon-salam.png
-export const APP_LOGO = "/logo-pawon-salam.png";
-export const BRAND_TAGLINE = "Sajian Otentik Khas Semarang";
-export const PUBLIC_ICON_LOGO = "/logo-pawon-salam.png";
+export const BRAND_NAME = "Kedai Elvera 57";
+// Local offline-ready logo with fallback reference: /icon.png
+export const APP_LOGO = "/icon.png";
+export const BRAND_TAGLINE = "Sajian Spesial Penuh Rasa";
+export const PUBLIC_ICON_LOGO = "/icon.png";
 
 // ─── LOKASI & GEOFENCING (Kedai Elvera 57) ────────────────────────────────────
 export const RESTAURANT_COORDS = { lat: -6.302803597899337, lng: 106.77826146312971 };
@@ -254,7 +254,7 @@ export const SEED_MENU: MenuItem[] = [
     "image": "/imports/Welcome_Drink.webp",
     "available": true,
     "tag": "Spesial",
-    "description": "Minuman selamat datang khas Pawon Salam, perpaduan buah tropis yang menyegarkan."
+    "description": "Minuman selamat datang khas Kedai Elvera 57, perpaduan buah tropis yang menyegarkan."
   },
   {
     "id": "menu_029",
@@ -396,7 +396,7 @@ export const HOURLY_DATA = [
 ];
 
 export const CREDENTIALS = {
-  admin: { password: "admin123", name: "Admin Pawon Salam" },
+  admin: { password: "admin123", name: "Admin Kedai Elvera 57" },
   waiter: { password: "waiter123", name: "Pelayan" },
   kitchen: { password: "dapur123", name: "Dapur" },
 };

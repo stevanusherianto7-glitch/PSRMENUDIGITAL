@@ -1,6 +1,6 @@
 /** 
  * ⚠️ DILARANG KERAS UNTUK MENGUBAH ATAU MEMODIFIKASI FILE INI TANPA IZIN SENIOR ARCHITECT.
- * FILE INI BERISI LOGIKA FORMATTING ESC/POS UNTUK STRUK FISIK PAWON SALAM.
+ * FILE INI BERISI LOGIKA FORMATTING ESC/POS UNTUK STRUK FISIK Kedai Elvera 57.
  * KESALAHAN MODIFIKASI DAPAT MENYEBABKAN TEKS STRUK TERPOTONG ATAU TIDAK TERBACA. ⚠️
  */
 
@@ -41,7 +41,7 @@ export const ReceiptTemplate = {
       .initialize()
       .codepage('windows1252')
       .raw([0x1B, 0x61, 0x01]) // ESC a 1 (Center)
-      .text('Pawon Salam')
+      .text('Kedai Elvera 57')
       .newline()
       .text('Ruko Beryl Commercial')
       .newline()
@@ -244,7 +244,7 @@ export const ReceiptTemplate = {
       .initialize()
       .codepage('windows1252')
       .raw([0x1B, 0x61, 0x01]) // Center
-      .text('Pawon Salam')
+      .text('Kedai Elvera 57')
       .newline()
       .text('Ruko Beryl Commercial')
       .newline()

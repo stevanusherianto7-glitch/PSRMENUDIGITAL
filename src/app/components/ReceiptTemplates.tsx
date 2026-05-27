@@ -126,7 +126,7 @@ export function GuestReceipt({ tx }: GuestReceiptProps) {
   return (
     <div className="receipt-container">
       <style>{receiptStyles}</style>
-      <div className="text-center font-bold text-sm mb-0.5">Pawon Salam</div>
+      <div className="text-center font-bold text-sm mb-0.5">Kedai Elvera 57</div>
       <div className="text-center text-[7.5px] leading-tight mb-0.5">Ruko Beryl Commercial, Summarecon</div>
       <div className="text-center text-[7.5px] leading-tight mb-0.5">Jl. Bulevar Selatan No.78</div>
       <div className="text-center text-[7.5px] leading-tight mb-0.5">Cisaranten Kidul, Kec. Gedebage</div>
@@ -238,7 +238,7 @@ export function ClosingReceipt({ data }: ClosingReceiptProps) {
   return (
     <div className="receipt-container">
       <style>{receiptStyles}</style>
-      <div className="text-center font-bold text-sm mb-0.5">Pawon Salam</div>
+      <div className="text-center font-bold text-sm mb-0.5">Kedai Elvera 57</div>
       <div className="text-center text-[7.5px] leading-tight mb-0.5">Ruko Beryl Commercial, Summarecon</div>
       <div className="text-center text-[7.5px] leading-tight mb-0.5">Jl. Bulevar Selatan No.78</div>
       <div className="text-center text-[7.5px] leading-tight mb-0.5">Cisaranten Kidul, Kec. Gedebage</div>

@@ -1,6 +1,6 @@
 /** 
  * ⚠️ DILARANG KERAS UNTUK MENGUBAH ATAU MEMODIFIKASI FILE INI TANPA IZIN SENIOR ARCHITECT.
- * FILE INI BERISI DASHBOARD ANALITIK DAN VISUALISASI DATA (RECHARTS) PAWON SALAM.
+ * FILE INI BERISI DASHBOARD ANALITIK DAN VISUALISASI DATA (RECHARTS) Kedai Elvera 57.
  * KESALAHAN MODIFIKASI DAPAT MENYEBABKAN LAPORAN KEUANGAN TIDAK AKURAT. ⚠️
  */
 import React, { useState, useEffect } from "react";
@@ -553,7 +553,7 @@ export const DashboardModule = ({ transactions, liveOrders, connected, onTransac
         >
           <span className="flex items-center gap-2">
             <Sparkles size={14} className="text-amber-500 animate-pulse" />
-            Panel Kontrol Simulasi Transaksi (Pawon Salam POS)
+            Panel Kontrol Simulasi Transaksi (Kedai Elvera 57 POS)
           </span>
           <span className="flex items-center gap-3">
             {localSimulatedTransactions.length > 0 && (
