@@ -184,8 +184,8 @@ export function GuestReceipt({ tx }: GuestReceiptProps) {
           </div>
         ) : null}
         <div className="flex justify-between font-bold text-sm mt-1 border-t border-dashed pt-0.5">
-          <span>TOTAL</span>
-          <span>{tx.total.toLocaleString("id-ID")}</span>
+          <span>TOTAL BELANJA</span>
+          <span>Rp {tx.total.toLocaleString("id-ID")}</span>
         </div>
         <div className="flex justify-between">
           <span>Metode Bayar:</span>
@@ -193,19 +193,21 @@ export function GuestReceipt({ tx }: GuestReceiptProps) {
         </div>
         {tx.method === "Tunai" && tx.cash_received !== undefined ? (
           <>
-            <div className="flex justify-between">
-              <span>Tunai:</span>
-              <span>{tx.cash_received.toLocaleString("id-ID")}</span>
+            <div className="border-t border-dashed my-0.5" />
+            <div className="flex justify-between font-semibold">
+              <span>Uang Diterima:</span>
+              <span>Rp {tx.cash_received.toLocaleString("id-ID")}</span>
             </div>
-            <div className="flex justify-between">
-              <span>Kembali:</span>
-              <span>{tx.change_amount?.toLocaleString("id-ID") || "0"}</span>
+            <div className="flex justify-between font-bold">
+              <span>Kembalian:</span>
+              <span>Rp {(tx.change_amount ?? 0).toLocaleString("id-ID")}</span>
             </div>
+            <div className="border-t border-dashed mt-0.5" />
           </>
         ) : (
           <div className="flex justify-between">
             <span>Bayar:</span>
-            <span>{tx.total.toLocaleString("id-ID")}</span>
+            <span>Rp {tx.total.toLocaleString("id-ID")}</span>
           </div>
         )}
       </div>

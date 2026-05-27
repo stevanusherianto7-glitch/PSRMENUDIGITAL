@@ -92,15 +92,22 @@ export const ReceiptTemplate = {
     }
 
     builder = builder
-      .text(ReceiptTemplate.formatLine('TOTAL:', tx.total.toLocaleString('id-ID')))
+      .text(ReceiptTemplate.formatLine('TOTAL BELANJA:', `Rp ${tx.total.toLocaleString('id-ID')}`))
       .newline()
       .text(ReceiptTemplate.formatLine('Metode:', tx.method.toUpperCase()))
-      .newline()
-      .text(ReceiptTemplate.formatLine('Bayar:', tx.total.toLocaleString('id-ID')))
-      .newline()
-      .text(ReceiptTemplate.formatLine('Kembali:', '0'))
-      .newline()
-      .text('--------------------------------')
+      .newline();
+
+    if (tx.method === 'Tunai' && tx.cash_received !== undefined) {
+      builder = builder
+        .text('--------------------------------')
+        .newline()
+        .text(ReceiptTemplate.formatLine('Uang Diterima:', `Rp ${tx.cash_received.toLocaleString('id-ID')}`))
+        .newline()
+        .text(ReceiptTemplate.formatLine('Kembalian:', `Rp ${(tx.change_amount ?? 0).toLocaleString('id-ID')}`))
+        .newline();
+    }
+
+    builder = builder
       .newline()
       .raw([0x1B, 0x61, 0x01]) // ESC a 1 (Center)
       .text('Dukung UMKM Indonesia')
