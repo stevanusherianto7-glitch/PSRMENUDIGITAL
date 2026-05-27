@@ -119,6 +119,10 @@ export interface Transaction {
   total: number;
   /** Payment method used */
   method: string;
+  /** Amount of cash received (if method is Tunai) */
+  cash_received?: number;
+  /** Amount of change returned (if method is Tunai) */
+  change_amount?: number;
   /** ISO timestamp when transaction was created */
   created_at: string;
   /** Reference order identifier */

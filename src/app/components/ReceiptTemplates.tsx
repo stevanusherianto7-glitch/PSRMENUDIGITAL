@@ -191,14 +191,23 @@ export function GuestReceipt({ tx }: GuestReceiptProps) {
           <span>Metode Bayar:</span>
           <span>{tx.method.toUpperCase()}</span>
         </div>
-        <div className="flex justify-between">
-          <span>Bayar:</span>
-          <span>{tx.total.toLocaleString("id-ID")}</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Kembali:</span>
-          <span>0</span>
-        </div>
+        {tx.method === "Tunai" && tx.cash_received !== undefined ? (
+          <>
+            <div className="flex justify-between">
+              <span>Tunai:</span>
+              <span>{tx.cash_received.toLocaleString("id-ID")}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Kembali:</span>
+              <span>{tx.change_amount?.toLocaleString("id-ID") || "0"}</span>
+            </div>
+          </>
+        ) : (
+          <div className="flex justify-between">
+            <span>Bayar:</span>
+            <span>{tx.total.toLocaleString("id-ID")}</span>
+          </div>
+        )}
       </div>
       
       <div className="border-b border-dashed my-1"></div>

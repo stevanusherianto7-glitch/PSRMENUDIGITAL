@@ -96,6 +96,7 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
   const [printerConnected, setPrinterConnected] = useState(printService.getIsConnected());
   const [showPayConfirm, setShowPayConfirm] = useState(false);
   const [processedOrderIds, setProcessedOrderIds] = useState<string[]>([]);
+  const [cashReceived, setCashReceived] = useState<number>(0);
 
   // Listen to printer connection status changes
   useEffect(() => {
@@ -184,6 +185,8 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
         tax,
         total,
         method: payMethod,
+        cash_received: payMethod === "Tunai" ? cashReceived : undefined,
+        change_amount: payMethod === "Tunai" ? Math.max(0, cashReceived - total) : undefined,
         created_at: new Date().toISOString(),
         order_id: currentPayingOrderId || undefined
       };
@@ -229,6 +232,7 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
       setCurrentPayingOrderId(null);
       setChefNotes("");
       setOrderMode("dine-in");
+      setCashReceived(0);
     }, 60000);
   }
 
@@ -748,6 +752,32 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
                   <span className="font-black text-[#4e3629] uppercase tracking-wider">{cart.reduce((s, c) => s + c.qty, 0)} Porsi</span>
                 </div>
 
+                {payMethod === "Tunai" && (
+                  <>
+                    <div className="border-t border-dashed border-[#dfd3c3] my-2" />
+                    <div className="space-y-2 pt-1">
+                      <label className="text-[10px] text-[#a76d33] font-bold uppercase tracking-widest block">Uang Diterima (Cash)</label>
+                      <input 
+                        type="number"
+                        min={total}
+                        value={cashReceived || ''}
+                        onChange={(e) => setCashReceived(Number(e.target.value))}
+                        className="w-full bg-white border border-[#dfd3c3] rounded-xl px-4 py-3 text-sm font-black text-[#4e3629] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-mono"
+                        placeholder={`Min: ${total}`}
+                        autoFocus
+                      />
+                      {cashReceived > 0 && (
+                        <div className="flex justify-between items-center bg-white/60 p-3 rounded-xl border border-[#dfd3c3] mt-2">
+                          <span className="text-[10px] text-[#a76d33] font-bold uppercase tracking-widest">Kembalian</span>
+                          <span className={`text-sm font-black font-['Poppins'] tracking-tighter ${cashReceived < total ? 'text-red-500' : 'text-green-600'}`}>
+                            {cashReceived < total ? "Uang Kurang!" : rp(cashReceived - total)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                )}
+
                 <div className="border-b border-dashed border-[#dfd3c3] my-1" />
               </div>
             </div>
@@ -761,7 +791,8 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
               </button>
               <button
                 onClick={processPayment}
-                className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+                disabled={payMethod === "Tunai" && cashReceived < total}
+                className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
               >
                 <CheckCircle2 size={16} /> Ya, Proses
               </button>
