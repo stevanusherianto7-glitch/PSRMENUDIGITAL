@@ -22,7 +22,7 @@ export const PUBLIC_ICON_LOGO = "/logo_kedai_Elvera57.webp";
 
 // ─── LOKASI & GEOFENCING (Kedai Elvera 57) ────────────────────────────────────
 export const RESTAURANT_COORDS = { lat: -6.302760941952337, lng: 106.77789668270078 };
-export const ALLOWED_RADIUS_METERS = 150; // Radius toleransi GPS (meter)
+export const ALLOWED_RADIUS_METERS = 300; // Radius toleransi GPS diperbesar (meter) untuk Opsi B
 
 // ─── SEED MENU (Fetched from Supabase Project B) ──────────────────────────────────
 export const SEED_MENU: MenuItem[] = [
