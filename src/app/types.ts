@@ -127,6 +127,8 @@ export interface Transaction {
   created_at: string;
   /** Reference order identifier */
   order_id?: string;
+  /** Platform order ID for delivery apps (GoFood, GrabFood, ShopeeFood) */
+  platform_order_id?: string;
 }
 
 /**

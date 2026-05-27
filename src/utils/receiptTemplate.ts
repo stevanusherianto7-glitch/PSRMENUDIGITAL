@@ -97,6 +97,12 @@ export const ReceiptTemplate = {
       .text(ReceiptTemplate.formatLine('Metode:', tx.method.toUpperCase()))
       .newline();
 
+    if (tx.platform_order_id) {
+      builder = builder
+        .text(ReceiptTemplate.formatLine('No. Order:', tx.platform_order_id.toUpperCase()))
+        .newline();
+    }
+
     if (tx.method === 'Tunai' && tx.cash_received !== undefined) {
       builder = builder
         .text('--------------------------------')

@@ -204,10 +204,11 @@ export function GuestReceipt({ tx }: GuestReceiptProps) {
             </div>
             <div className="border-t border-dashed mt-0.5" />
           </>
-        ) : (
+        ) : null}
+        {tx.platform_order_id && (
           <div className="flex justify-between">
-            <span>Bayar:</span>
-            <span>Rp {tx.total.toLocaleString("id-ID")}</span>
+            <span>No. Order Platform:</span>
+            <span className="font-bold tracking-widest">{tx.platform_order_id.toUpperCase()}</span>
           </div>
         )}
       </div>

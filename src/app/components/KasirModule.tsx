@@ -97,6 +97,7 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
   const [showPayConfirm, setShowPayConfirm] = useState(false);
   const [processedOrderIds, setProcessedOrderIds] = useState<string[]>([]);
   const [cashReceived, setCashReceived] = useState<number>(0);
+  const [platformOrderId, setPlatformOrderId] = useState("");
   const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
   const [menuSearch, setMenuSearch] = useState("");
   const [menuCat, setMenuCat] = useState("Semua");
@@ -193,6 +194,7 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
     setSaving(true);
     try {
       const txId = `TX-${Date.now().toString(36).toUpperCase()}`;
+      const DELIVERY_METHODS = ["GoFood", "GrabFood", "ShopeeFood"];
       const tx: Transaction = {
         id: txId,
         table_id: orderMode === "take-away" ? null : selectedTable,
@@ -205,6 +207,7 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
         method: payMethod,
         cash_received: payMethod === "Tunai" ? cashReceived : undefined,
         change_amount: payMethod === "Tunai" ? Math.max(0, cashReceived - total) : undefined,
+        platform_order_id: DELIVERY_METHODS.includes(payMethod) && platformOrderId.trim() ? platformOrderId.trim() : undefined,
         created_at: new Date().toISOString(),
         order_id: currentPayingOrderId || undefined
       };
@@ -251,6 +254,7 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
       setChefNotes("");
       setOrderMode("dine-in");
       setCashReceived(0);
+      setPlatformOrderId("");
     }, 60000);
   }
 
@@ -786,6 +790,7 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
                   <span className="font-black text-[#4e3629] uppercase tracking-wider">{cart.reduce((s, c) => s + c.qty, 0)} Porsi</span>
                 </div>
 
+                {/* ─── TUNAI: Input uang diterima + kalkulasi kembalian ─── */}
                 {payMethod === "Tunai" && (
                   <>
                     <div className="border-t border-dashed border-[#dfd3c3] my-2" />
@@ -797,17 +802,68 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
                         value={cashReceived || ''}
                         onChange={(e) => setCashReceived(Number(e.target.value))}
                         className="w-full bg-white border border-[#dfd3c3] rounded-xl px-4 py-3 text-sm font-black text-[#4e3629] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-mono"
-                        placeholder={`Min: ${total}`}
+                        placeholder={`Min: ${rp(total)}`}
                         autoFocus
                       />
                       {cashReceived > 0 && (
                         <div className="flex justify-between items-center bg-white/60 p-3 rounded-xl border border-[#dfd3c3] mt-2">
                           <span className="text-[10px] text-[#a76d33] font-bold uppercase tracking-widest">Kembalian</span>
                           <span className={`text-sm font-black font-['Poppins'] tracking-tighter ${cashReceived < total ? 'text-red-500' : 'text-green-600'}`}>
-                            {cashReceived < total ? "Uang Kurang!" : rp(cashReceived - total)}
+                            {cashReceived < total ? "⚠ Uang Kurang!" : rp(cashReceived - total)}
                           </span>
                         </div>
                       )}
+                    </div>
+                  </>
+                )}
+
+                {/* ─── QRIS / DEBIT / E-WALLET: Contextual payment hint ─── */}
+                {(payMethod === "QRIS" || payMethod === "Debit" || payMethod === "E-Wallet") && (
+                  <>
+                    <div className="border-t border-dashed border-[#dfd3c3] my-2" />
+                    <div className="flex items-start gap-3 bg-blue-50/60 border border-blue-100 rounded-xl p-3">
+                      <div className="text-lg shrink-0">
+                        {payMethod === "QRIS" && "📲"}
+                        {payMethod === "Debit" && "💳"}
+                        {payMethod === "E-Wallet" && "📱"}
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-black text-blue-700 uppercase tracking-widest">
+                          {payMethod === "QRIS" && "Arahkan kamera ke kode QR"}
+                          {payMethod === "Debit" && "Tap atau gesek kartu ke mesin EDC"}
+                          {payMethod === "E-Wallet" && "Bayar via aplikasi e-wallet pelanggan"}
+                        </p>
+                        <p className="text-[9px] text-blue-500 mt-0.5">
+                          Pastikan pembayaran terkonfirmasi sebelum klik "Ya, Proses"
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* ─── GOFOOD / GRABFOOD / SHOPEEFOOD: Input nomor order ─── */}
+                {(payMethod === "GoFood" || payMethod === "GrabFood" || payMethod === "ShopeeFood") && (
+                  <>
+                    <div className="border-t border-dashed border-[#dfd3c3] my-2" />
+                    <div className="space-y-2 pt-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-base">
+                          {payMethod === "GoFood" && "🟢"}
+                          {payMethod === "GrabFood" && "🟩"}
+                          {payMethod === "ShopeeFood" && "🟠"}
+                        </span>
+                        <label className="text-[10px] text-[#a76d33] font-bold uppercase tracking-widest">
+                          No. Order {payMethod} <span className="text-[9px] normal-case font-medium opacity-60">(opsional)</span>
+                        </label>
+                      </div>
+                      <input
+                        type="text"
+                        value={platformOrderId}
+                        onChange={(e) => setPlatformOrderId(e.target.value)}
+                        placeholder={`Contoh: ${payMethod === 'GoFood' ? 'GF-' : payMethod === 'GrabFood' ? 'GB-' : 'SF-'}XXXXXX`}
+                        className="w-full bg-white border border-[#dfd3c3] rounded-xl px-4 py-3 text-sm font-black text-[#4e3629] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-mono tracking-widest"
+                      />
+                      <p className="text-[9px] text-[#a76d33] opacity-70">Digunakan untuk rekonsiliasi tagihan platform. Lewati jika tidak tersedia.</p>
                     </div>
                   </>
                 )}
