@@ -20,6 +20,10 @@ export const APP_LOGO = "/logo-pawon-salam.png";
 export const BRAND_TAGLINE = "Sajian Otentik Khas Semarang";
 export const PUBLIC_ICON_LOGO = "/logo-pawon-salam.png";
 
+// ─── LOKASI & GEOFENCING (Kedai Elvera 57) ────────────────────────────────────
+export const RESTAURANT_COORDS = { lat: -6.302803597899337, lng: 106.77826146312971 };
+export const ALLOWED_RADIUS_METERS = 150; // Radius toleransi GPS (meter)
+
 // ─── SEED MENU (Fetched from Supabase Project B) ──────────────────────────────────
 export const SEED_MENU: MenuItem[] = [
   {
