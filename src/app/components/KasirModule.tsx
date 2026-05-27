@@ -97,6 +97,9 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
   const [showPayConfirm, setShowPayConfirm] = useState(false);
   const [processedOrderIds, setProcessedOrderIds] = useState<string[]>([]);
   const [cashReceived, setCashReceived] = useState<number>(0);
+  const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
+  const [menuSearch, setMenuSearch] = useState("");
+  const [menuCat, setMenuCat] = useState("Semua");
 
   // Listen to printer connection status changes
   useEffect(() => {
@@ -166,6 +169,21 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
 
   function updateQty(id: string, delta: number) {
     setCart(prev => prev.map(c => c.id === id ? { ...c, qty: Math.max(0, c.qty + delta) } : c).filter(c => c.qty > 0));
+  }
+
+  function handleAddExtraItem(menu: MenuItem) {
+    if (!menu.available) {
+      toast.error(`${menu.name} sedang habis.`);
+      return;
+    }
+    setCart(prev => {
+      const existing = prev.find(item => item.id === menu.id);
+      if (existing) {
+        return prev.map(item => item.id === menu.id ? { ...item, qty: item.qty + 1 } : item);
+      }
+      return [...prev, { ...menu, qty: 1 }];
+    });
+    toast.success(`${menu.name} ditambahkan!`, { duration: 1000, position: 'bottom-center' });
   }
 
   async function processPayment() {
@@ -630,6 +648,16 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
           ) : (
             <>
               <div className="flex-1 p-6 space-y-4">
+                <div className="flex justify-between items-center mb-2">
+                  <h4 className="font-black text-xs text-[#4e3629] uppercase tracking-widest">Daftar Pesanan</h4>
+                  <button
+                    onClick={() => setIsAddMenuOpen(true)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-xl hover:bg-primary hover:text-white transition-all font-black text-[9px] uppercase tracking-wider shadow-sm"
+                  >
+                    <Plus size={12} /> Tambah Item
+                  </button>
+                </div>
+
                 {cart.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-[#a76d33] gap-6">
                     <div className="w-20 h-20 bg-[#ece3d5] rounded-full border-2 border-dashed border-[#dfd3c3] flex items-center justify-center">
@@ -657,8 +685,14 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
                       <p className="text-xs font-black text-[#4e3629] leading-tight uppercase tracking-tight line-clamp-1">{c.name}</p>
                       <p className="text-[10px] text-primary font-black mt-1 font-mono tracking-tighter">{rp(c.price)}</p>
                     </div>
-                    <div className="flex items-center justify-center bg-white/90 border border-[#dfd3c3] rounded-xl px-3.5 py-1.5 shadow-sm">
-                      <span className="text-xs font-black text-[#4e3629]">{c.qty} Porsi</span>
+                    <div className="flex items-center bg-white/90 border border-[#dfd3c3] rounded-xl overflow-hidden shadow-sm">
+                      <button onClick={() => updateQty(c.id, -1)} className="px-2.5 py-1.5 text-[#a76d33] hover:bg-[#ece3d5] hover:text-[#4e3629] transition-colors flex items-center justify-center">
+                        <Minus size={12} />
+                      </button>
+                      <span className="text-xs font-black text-[#4e3629] w-6 text-center">{c.qty}</span>
+                      <button onClick={() => updateQty(c.id, 1)} className="px-2.5 py-1.5 text-[#a76d33] hover:bg-[#ece3d5] hover:text-[#4e3629] transition-colors flex items-center justify-center">
+                        <Plus size={12} />
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -796,6 +830,85 @@ export function KasirModule({ menuItems, onTransaction, promos, tables, orders, 
               >
                 <CheckCircle2 size={16} /> Ya, Proses
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Tambah Menu Kasir */}
+      {isAddMenuOpen && (
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-300" onClick={() => setIsAddMenuOpen(false)}>
+          <div className="bg-[#f4efe9] border border-[#dfd3c3] rounded-[32px] w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-300" onClick={(e) => e.stopPropagation()}>
+            <div className="p-6 border-b border-[#dfd3c3] bg-[#ece3d5] flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-primary/10 rounded-xl border border-primary/20">
+                  <ShoppingBag size={20} className="text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-black text-sm text-[#4e3629] uppercase tracking-widest font-poppins">Menu Tambahan</h3>
+                  <p className="text-[10px] text-[#a76d33] font-bold uppercase tracking-tighter mt-0.5">Pilih item untuk ditambahkan ke tagihan</p>
+                </div>
+              </div>
+              <button onClick={() => setIsAddMenuOpen(false)} className="p-2 hover:bg-[#e3d7c5] rounded-xl text-[#a76d33] transition-all">
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="p-5 bg-white border-b border-[#dfd3c3] flex flex-col sm:flex-row gap-3">
+              <input 
+                type="text" 
+                placeholder="Cari menu (ex: Kerupuk)..." 
+                value={menuSearch}
+                onChange={(e) => setMenuSearch(e.target.value)}
+                className="flex-1 bg-[#fcfbfa] border border-[#dfd3c3] rounded-2xl px-4 py-2.5 text-xs font-black text-[#4e3629] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+              />
+              <select 
+                value={menuCat}
+                onChange={(e) => setMenuCat(e.target.value)}
+                className="bg-[#fcfbfa] border border-[#dfd3c3] rounded-2xl px-4 py-2.5 text-xs font-black text-[#4e3629] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all sm:w-40"
+              >
+                {menuCategories.map(cat => (
+                  <option key={cat.id} value={cat.name}>{cat.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-5 grid grid-cols-2 sm:grid-cols-3 gap-4 custom-scrollbar bg-[#fcfbfa]">
+              {menuItems
+                .filter(m => (menuCat === "Semua" || m.category === menuCat) && m.name.toLowerCase().includes(menuSearch.toLowerCase()))
+                .map(menu => (
+                <div 
+                  key={menu.id} 
+                  role="button"
+                  onClick={() => handleAddExtraItem(menu)}
+                  className="bg-white border border-[#dfd3c3] rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col"
+                >
+                  <div className="aspect-square w-full relative overflow-hidden bg-[#ece3d5]">
+                    <img src={menu.image || APP_LOGO} alt={menu.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    {!menu.available && (
+                      <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-center justify-center z-10">
+                        <span className="bg-red-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">Habis</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-3 flex flex-col flex-1 justify-between gap-1.5">
+                    <p className="text-[10px] font-black text-[#4e3629] uppercase tracking-tight leading-snug line-clamp-2">{menu.name}</p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <p className="text-[11px] font-black text-primary font-mono tracking-tighter">{rp(menu.price)}</p>
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Plus size={12} className="text-primary" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              
+              {menuItems.filter(m => (menuCat === "Semua" || m.category === menuCat) && m.name.toLowerCase().includes(menuSearch.toLowerCase())).length === 0 && (
+                <div className="col-span-full py-12 flex flex-col items-center justify-center text-muted-foreground gap-3">
+                  <ShoppingBag size={32} className="opacity-20" />
+                  <p className="text-[10px] font-black uppercase tracking-widest">Menu tidak ditemukan</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
