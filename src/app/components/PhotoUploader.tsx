@@ -110,10 +110,8 @@ export function PhotoUploader({
       setUrlInput(data.publicUrl);
       setMode("preview");
     } catch (err: any) {
-      // Fallback: use object URL (won't persist across sessions, but good for demo)
-      const objectUrl = URL.createObjectURL(file);
-      onChange(objectUrl);
-      setMode("preview");
+      console.error("Upload error:", err);
+      setError(err.message || "Gagal mengunggah foto. Pastikan koneksi dan bucket storage tersedia.");
     }
     setUploading(false);
     if (fileRef.current) fileRef.current.value = "";
