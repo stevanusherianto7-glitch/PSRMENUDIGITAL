@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Pawon Salam - E2E Login Flow', () => {
+test.describe('Kedai Elvera 57 - E2E Login Flow', () => {
   test.beforeEach(async ({ page }) => {
     // Go to the login page
     await page.goto('/');
