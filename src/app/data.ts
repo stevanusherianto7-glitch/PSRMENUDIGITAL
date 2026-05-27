@@ -28,9 +28,9 @@ export const ALLOWED_RADIUS_METERS = 150; // Radius toleransi GPS (meter)
 export const SEED_MENU: MenuItem[] = [
   {
     "id": "menu_001",
-    "name": "Nasi Goreng Jawa",
+    "name": "Nasi Goreng Elvera",
     "category": "Makanan",
-    "price": 25000,
+    "price": 20000,
     "image": "/imports/Nasi_Goreng_Jawa.webp",
     "available": true,
     "tag": "Favorit",
@@ -38,9 +38,9 @@ export const SEED_MENU: MenuItem[] = [
   },
   {
     "id": "menu_002",
-    "name": "Bakmi Goreng Jawa",
+    "name": "Bakmie Jawa Goreng",
     "category": "Makanan",
-    "price": 24000,
+    "price": 25000,
     "image": "/imports/Bakmi_Goreng_Jawa.webp",
     "available": true,
     "tag": undefined,
@@ -48,9 +48,9 @@ export const SEED_MENU: MenuItem[] = [
   },
   {
     "id": "menu_003",
-    "name": "Bakmi Godog Jawa",
+    "name": "Bakmie Jawa Godog",
     "category": "Makanan",
-    "price": 24000,
+    "price": 25000,
     "image": "/imports/Bakmi_Godog_Jawa.webp",
     "available": true,
     "tag": undefined,
@@ -58,9 +58,9 @@ export const SEED_MENU: MenuItem[] = [
   },
   {
     "id": "menu_004",
-    "name": "Soto Ayam Semarang",
+    "name": "Soto Ayam Semarang (Nasi Campur)",
     "category": "Makanan",
-    "price": 28000,
+    "price": 15000,
     "image": "/imports/Soto_Ayam_Semarang.webp",
     "available": true,
     "tag": "Best Seller",
@@ -108,7 +108,7 @@ export const SEED_MENU: MenuItem[] = [
   },
   {
     "id": "menu_012",
-    "name": "Jeruk Peras",
+    "name": "Es Jeruk / Jeruk Hangat",
     "category": "Minuman",
     "price": 8000,
     "image": "/imports/Es_Jeruk_Peras.webp",
@@ -168,7 +168,7 @@ export const SEED_MENU: MenuItem[] = [
   },
   {
     "id": "menu_023",
-    "name": "Fanta, Sprite, Cola",
+    "name": "Fanta / Sprite / Coca Cola",
     "category": "Minuman",
     "price": 7000,
     "image": "/imports/Fanta,_Sprite,_Cola.webp",
@@ -258,7 +258,7 @@ export const SEED_MENU: MenuItem[] = [
   },
   {
     "id": "menu_029",
-    "name": "Es Teh",
+    "name": "Es Teh Manis / Teh Manis",
     "category": "Minuman",
     "price": 5000,
     "image": "/imports/Es_Teh.webp",
@@ -268,9 +268,9 @@ export const SEED_MENU: MenuItem[] = [
   },
   {
     "id": "menu_005",
-    "name": "Rawon Semarang",
+    "name": "Nasi Rawon",
     "category": "Makanan",
-    "price": 32000,
+    "price": 28000,
     "image": "/imports/Rawon_Semarang.webp",
     "available": true,
     "tag": undefined,
@@ -315,6 +315,132 @@ export const SEED_MENU: MenuItem[] = [
     "available": true,
     "tag": undefined,
     "description": "Air mineral AQUA kemasan, segar dan menyehatkan."
+  },
+  {
+    "id": "menu_030",
+    "name": "Soto Ayam Semarang (Nasi Pisah)",
+    "category": "Makanan",
+    "price": 18000,
+    "image": "",
+    "available": true,
+    "description": "Soto ayam segar dengan nasi disajikan terpisah."
+  },
+  {
+    "id": "menu_031",
+    "name": "Ayam Goreng Elvera + Nasi",
+    "category": "Makanan",
+    "price": 25000,
+    "image": "",
+    "available": true,
+    "description": "Ayam goreng bumbu khas Elvera disajikan dengan nasi hangat."
+  },
+  {
+    "id": "menu_032",
+    "name": "Ayam Goreng Elvera (Tanpa Nasi)",
+    "category": "Makanan",
+    "price": 20000,
+    "image": "",
+    "available": true,
+    "description": "Ayam goreng bumbu rempah khas Elvera."
+  },
+  {
+    "id": "menu_033",
+    "name": "Nasi Goreng Elvera Special",
+    "category": "Makanan",
+    "price": 25000,
+    "image": "",
+    "available": true,
+    "description": "Nasi goreng spesial dengan tambahan topping lengkap."
+  },
+  {
+    "id": "menu_034",
+    "name": "Nasi Putih",
+    "category": "Makanan",
+    "price": 5000,
+    "image": "",
+    "available": true,
+    "description": "Nasi putih hangat."
+  },
+  {
+    "id": "menu_035",
+    "name": "Kerupuk Sari Udang",
+    "category": "Snack",
+    "price": 3000,
+    "image": "",
+    "available": true,
+    "description": "Kerupuk udang renyah dan gurih."
+  },
+  {
+    "id": "menu_036",
+    "name": "Kerupuk Kaleng",
+    "category": "Snack",
+    "price": 3000,
+    "image": "",
+    "available": true,
+    "description": "Kerupuk putih kaleng legendaris."
+  },
+  {
+    "id": "menu_037",
+    "name": "Emping",
+    "category": "Snack",
+    "price": 3000,
+    "image": "",
+    "available": true,
+    "description": "Emping melinjo renyah."
+  },
+  {
+    "id": "menu_038",
+    "name": "Perkedel",
+    "category": "Snack",
+    "price": 5000,
+    "image": "",
+    "available": true,
+    "description": "Perkedel kentang gurih."
+  },
+  {
+    "id": "menu_039",
+    "name": "Tahu / Tempe",
+    "category": "Snack",
+    "price": 3000,
+    "image": "",
+    "available": true,
+    "description": "Pilihan tahu atau tempe goreng."
+  },
+  {
+    "id": "menu_040",
+    "name": "Telur Asin",
+    "category": "Snack",
+    "price": 5000,
+    "image": "",
+    "available": true,
+    "description": "Telur asin masir."
+  },
+  {
+    "id": "menu_041",
+    "name": "Sate Telur Puyuh Bacem",
+    "category": "Snack",
+    "price": 5000,
+    "image": "",
+    "available": true,
+    "description": "Sate telur puyuh dengan bumbu bacem manis legit."
+  },
+  {
+    "id": "menu_042",
+    "name": "Kopi Seduh",
+    "category": "Minuman",
+    "price": 5000,
+    "image": "",
+    "available": true,
+    "description": "Kopi hitam seduh hangat."
+  },
+  {
+    "id": "menu_043",
+    "name": "Teh Tawar / Es Teh Tawar",
+    "category": "Minuman",
+    "price": 3000,
+    "image": "",
+    "available": true,
+    "description": "Teh tawar segar, panas atau dingin."
   }
 ];
 
