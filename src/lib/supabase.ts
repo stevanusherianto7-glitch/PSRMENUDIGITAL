@@ -1,6 +1,6 @@
 /** 
  * ⚠️ DILARANG KERAS UNTUK MENGUBAH ATAU MEMODIFIKASI FILE INI TANPA IZIN SENIOR ARCHITECT.
- * FILE INI BERISI KONEKSI UTAMA KE SUPABASE Kedai Elvera 57.
+ * FILE INI BERISI KONEKSI UTAMA KE SUPABASE PAWON SALAM.
  * PELANGGARAN DAPAT MENYEBABKAN SISTEM KEHILANGAN KONEKSI DATA. ⚠️
  */
 
@@ -8,8 +8,8 @@ import { createClient } from '@supabase/supabase-js';
 
 /**
  * ──────────────────────────────────────────────────────────
- *  Kedai Elvera 57 — Supabase Client
- *  Project: https://ywqatzkkvbzkjnoexvux.supabase.co
+ *  Pawon Salam — Supabase Client
+ *  Project: https://pbitlwrgainrcippjuwd.supabase.co
  * ──────────────────────────────────────────────────────────
  *
  *  SCHEMA SQL — jalankan di Supabase SQL Editor:
@@ -65,15 +65,29 @@ import { createClient } from '@supabase/supabase-js';
  *    created_at timestamptz default now()
  *  );
  *
+ *  -- Printers (NEW TABLE for Kitchen Printer Integration)
+ *  create table if not exists printers (
+ *    id text primary key,
+ *    name text not null,
+ *    type text not null check (type in ('kitchen','receipt')),
+ *    ip_address text not null,
+ *    port integer not null default 9100,
+ *    status text not null default 'online' check (status in ('online','offline','error')),
+ *    last_printed timestamptz,
+ *    created_at timestamptz default now()
+ *  );
+ *
  *  -- Enable Realtime
  *  alter publication supabase_realtime add table meja;
  *  alter publication supabase_realtime add table transactions;
+  alter publication supabase_realtime add table printers;
  *
  *  -- Disable RLS (demo mode)
  *  alter table meja disable row level security;
  *  alter table menu_items disable row level security;
  *  alter table inventory disable row level security;
  *  alter table transactions disable row level security;
+  alter table printers disable row level security;
  */
 
 // Using credentials from auto-generated config file
@@ -87,5 +101,10 @@ export const supabase = createClient(supabaseUrl, supabaseKey, {
     persistSession: false,
     autoRefreshToken: false,
   },
+  realtime: {
+    params: {
+      eventsPerSecond: 10
+    }
+  }
 });
 

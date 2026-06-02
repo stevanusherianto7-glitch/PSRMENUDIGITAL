@@ -20,7 +20,11 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        // Add custom viewport for better payment testing
+        viewport: { width: 1280, height: 1024 }
+      },
     },
   ],
   webServer: {
@@ -29,4 +33,9 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },
+  // Add global timeout for payment operations
+  timeout: 30000,
+  expect: {
+    timeout: 10000
+  }
 });
