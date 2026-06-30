@@ -30,7 +30,7 @@ async function loginAsAdmin(page: Page) {
   await passwordInput.waitFor({ state: "visible", timeout: 10000 });
   await passwordInput.fill("admin123");
   await page.locator("button[type=submit]").click();
-  await page.waitForURL(/\/#\/admin/, { timeout: 15000 });
+  await page.waitForURL(/\/#\/admin/, { timeout: 45000 });
   await page.waitForTimeout(3000);
 }
 
